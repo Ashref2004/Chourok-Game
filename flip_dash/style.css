@@ -1,0 +1,5 @@
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#F7FBFF,#EAF7FF);color:#222;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+.wrap{width:98%;max-width:520px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.9);box-shadow:0 8px 26px rgba(0,0,0,0.06);text-align:center}
+canvas{background:#cfefff;border-radius:8px;display:block;margin:8px auto}
+.controls{display:flex;gap:8px;justify-content:center;margin:8px}
+button{padding:10px 12px;border-radius:10px;border:0;background:#0066CC;color:white;font-weight:700}
