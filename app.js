@@ -1,4 +1,3 @@
-// Flip & Dash - simple shape gate game
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const flipBtn = document.getElementById('flipBtn');
@@ -41,23 +40,18 @@ function drawGate(g){
 function update(){
   if(!alive) return;
   frame++;
-  // gravity
   player.vy += gravity; player.y += player.vy;
   if(player.y>height-20){ player.y=height-20; player.vy=0; alive=false; msg='Crashed!'; }
   if(player.y<20){ player.y=20; player.vy=0;}
   if(frame%120===0) spawnGate();
-  // move gates
   gates.forEach(g=>{ g.x -= 2.5; if(!g.passed && g.x < player.x){ if(g.type===player.shape) score++; g.passed=true; scoreEl.textContent='Score: '+score; }});
-  // collision simple (if gate near player and types differ -> crash)
   gates.forEach(g=>{
     if(Math.abs(g.x-player.x)<40 && g.type!==player.shape){ alive=false; }
   });
-  // cleanup
   gates = gates.filter(g=>g.x>-50);
 }
 function render(){
   ctx.clearRect(0,0,width,height);
-  // ground
   ctx.fillStyle='#9AD3FF'; ctx.fillRect(0,height-16,width,16);
   drawPlayer();
   gates.forEach(drawGate);
